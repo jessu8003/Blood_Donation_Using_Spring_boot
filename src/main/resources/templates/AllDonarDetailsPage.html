@@ -39,6 +39,16 @@
 		</tr>
 	</table>
 	</center>
+	<form action="/sendEmailToDonors" method="get" style="max-width:450px; margin:auto">
+    <input type="text" name="bloodgroup" class="form-control" placeholder="Required Blood Group" required><br>
+    <input type="text" name="patientName" class="form-control" placeholder="Patient Name" required><br>
+    <input type="number" name="patientAge" class="form-control" placeholder="Patient Age" required><br>
+    <input type="text" name="hospitalName" class="form-control" placeholder="Hospital Name" required><br>
+    <input type="text" name="hospitalAddress" class="form-control" placeholder="Hospital Address" required><br>
+    <input type="text" name="contactNumber" class="form-control" placeholder="Contact Number" required><br>
+    <button type="submit" class="btn btn-primary mt-2">Send Request</button>
+</form>
+	
 	
 	
 </body>

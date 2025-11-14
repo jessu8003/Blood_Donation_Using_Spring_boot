@@ -169,8 +169,15 @@ public class TestController {
 	}
 	@RequestMapping("/sendEmailToDonors")
 	@ResponseBody
-	public String sendEmailToDonors(@RequestParam("bloodgroup") String bloodgroup) {
-	    
+	public String sendEmailToDonors(
+	        @RequestParam("bloodgroup") String bloodgroup,
+	        @RequestParam("patientName") String patientName,
+	        @RequestParam("patientAge") int patientAge,
+	        @RequestParam("hospitalName") String hospitalName,
+	        @RequestParam("hospitalAddress") String hospitalAddress,
+	        @RequestParam("contactNumber") String contactNumber
+	) {
+
 	    List<DonorDetails> matchedDonors = donorService.getDonorsByBloodGroup(bloodgroup);
 
 	    if (matchedDonors.isEmpty()) {
@@ -178,16 +185,35 @@ public class TestController {
 	    }
 
 	    for (DonorDetails donor : matchedDonors) {
-	        emailService.sendEmail(
-	            donor.getDonoremailid(),
-	            "Urgent Blood Requirement - " + bloodgroup,
-	            "Dear " + donor.getDonorname() + ",\n\n" +
-	            "We urgently need blood of your group (" + bloodgroup + ").\n\nThank you!"
-	        );
+
+	        String subject = "Urgent Blood Requirement (" + bloodgroup + ")";
+
+	        String body =
+	                "Dear " + donor.getDonorname() + ",\n\n" +
+	                "We hope you are doing well.\n\n" +
+	                "This is an urgent request for a blood donation. Your blood group " + bloodgroup +
+	                " matches the required blood type for a patient in need.\n\n" +
+
+	                "---- Patient Details ----\n" +
+	                "• Name      : " + patientName + "\n" +
+	                "• Age       : " + patientAge + "\n" +
+	                "• Required Blood Group : " + bloodgroup + "\n\n" +
+
+	                "---- Hospital Details ----\n" +
+	                "• Hospital Name  : " + hospitalName + "\n" +
+	                "• Address        : " + hospitalAddress + "\n" +
+	                "• Contact Number : " + contactNumber + "\n\n" +
+
+	                "If you are able to donate, please contact the above number or visit the hospital immediately.\n" +
+	                "Your donation can help save a precious life.\n\n" +
+
+	                "Thank you for your kindness and humanity.\n\n" +
+	                "Warm Regards,\n" +
+	                "Blood Donation Management System";
+	        emailService.sendEmail(donor.getDonoremailid(), subject, body);
 	    }
 
-	    return "Emails sent successfully to donors with blood group " + bloodgroup;
+	    return "Emails sent successfully to all donors with blood group " + bloodgroup;
 	}
-
 
 }
