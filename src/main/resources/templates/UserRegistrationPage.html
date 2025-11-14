@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>User Registration Page</title>
+	<link rel="stylesheet" href="resources/css/blood-donation-styles.css">
+	<style type="text/css">
+	body {
+	            font-family: cursive;
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	            height: 100vh;
+	            background-color: white;
+	            margin: 0;
+	        }
+	
+	div {
+	          	background: white;
+	            padding: 20px;
+	            border-radius: 10px;
+	            box-shadow: 0px 4px 10px black;
+	            text-align: center;
+	            width: 400px;
+	            margin-left: 80px;
+	            margin-top: 100px;
+	        }
+	  h3 {
+	  			width:95%;
+	            color: green;
+	            margin-bottom: 20px;
+	            text-align: center;
+	            text-shadow:0px 3px 3px gray;
+	            font-weight:  bold;
+	            font-family: cursive;
+	        }
+	
+	        input {
+	            width: 60%;
+	            padding: 10px;
+	            margin: 10px 0;
+	            border: none;
+	            border-radius: 10px;
+	            box-shadow:0px 0px 1px 0px gray;
+	            text-align: center;
+	            font-size: 16px;
+	            outline: none;
+	            font-family: cursive;
+	            cursor: pointer;
+	        }
+	
+	        #button {
+	            width: 20%;
+	           
+	            padding: 10px;
+	            background-color: gray;
+	            color: white;
+	            border: none;
+	            border-radius: 10px;
+	            font-size: 18px;
+	            cursor: pointer;
+	            margin-top: 20px;
+	            outline: none;
+	            font-family: cursive;
+	            align-items: center;
+	            justify-content: center;
+	        }
+	
+	       #button:hover {
+	            background-color: darkgreen;
+	        }
+	</style>
+</head>
+<body>
+<center>
+	<div>
+		<h3>User Registration Page</h3>
+		<form action="registration">
+			<input placeholder="Enter User Name" name="username">
+			<br>
+			<input placeholder="Enter User Emailid" name="useremailid">
+			<br>
+			<input placeholder="Enter User Password" name="userpassword">
+			<br>
+			<input placeholder="Enter User Mobile Number" name="usermobilenumber">
+			<br>
+			<input placeholder="Enter User Address" name="useraddress">
+			<br>
+			<input placeholder="Enter User Gender" name="usergender">
+			<br>
+			<input type="submit" id="button">
+		</form>
+	</div>
+	<h1 th:text=${exceptionmsg}></h1>
+
+</center>
+</body>
+</html>
