@@ -137,8 +137,4 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 Using IDE:
 
 ✔ Right-click → Run as → Spring Boot App
-or
-Via terminal:
-
-mvn spring-boot:run
 
