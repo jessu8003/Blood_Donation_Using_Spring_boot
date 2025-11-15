@@ -10,7 +10,7 @@ import com.demo.entity.UserInformation;
 import com.demo.exception.userException;
 @Service
 public class UserService {
-	@Autowired
+@Autowired
 	UserDAO userDAO;
 	public UserInformation userRegistrationData(UserInformation userInformation)
 	{
