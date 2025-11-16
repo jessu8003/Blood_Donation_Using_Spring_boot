@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+	<form action="donateBlood">
+		<input th:value="${databaseUserDetails}" hidden="true">
+		<input type="submit" name="DonateBlood" value="Ready_To_Donate">
+	</form>
+	<form action="needBlood">
+		<input type="submit" name="DonateBlood" value="Need_Blood">
+	</form>
+</center>
+</body>
+</html>

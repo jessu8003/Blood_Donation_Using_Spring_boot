@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+<center>
+<h1>All User Details</h1>
+<form action="sortbyname">
+<input placeholder="Enter the Username" name="username">
+<br>
+<button type="submit">submit</button>
+</form>
+<form action="sortbygender">
+<input placeholder="Enter the Gender" name="usergender">
+<br>
+<button type="submit">submit</button>
+</form>
+<form action="filteruser">
+<input placeholder="Search By Name or Gender or Emailid or Password or Address" name="nameorgenderoremailidorpasswordoraddress">
+<br>
+<button type="submit">submit</button>
+</form>
+
+<table border="2px solid black" class="table table-striped-columns">
+<tr>
+<th>User Name</th>
+<th>User EmailId</th>
+<th>User Mobile Number</th>
+<th>User Address</th>
+<th>User Password</th>
+<th>User Gender</th>
+</tr>
+<tr th:each="userinfo:${alluserdetails}">
+<td th:text="${userinfo.username}"></td>
+<td th:text="${userinfo.useremailid}"></td>
+<td th:text="${userinfo.usermobilenumber}"></td>
+<td th:text="${userinfo.useraddress}"></td>
+<td th:text="${userinfo.userpassword}"></td>
+<td th:text="${userinfo.usergender}"></td>
+<td> <form action="UpdateDetails">
+<input th:value="${userinfo.username}" hidden="true" name="username">
+<input th:value="${userinfo.useremailid}" hidden="true" name="useremailid">
+
+<input th:value="${userinfo.usermobilenumber}" hidden="true" name="usermobilenumber">
+<input th:value="${userinfo.useraddress}" hidden="true" name="useraddress">
+<input th:value="${userinfo.userpassword}" hidden="true" name="userpassword">
+<input th:value="${userinfo.usergender}" hidden="true" name="usergender">
+<button type="submit">Update</button>
+</form>
+</td>
+<td> <form action="deleteuser">
+<input th:value="${userinfo.useremailid}" hidden="true" name="useremailid">
+<button type="submit">Delete</button>
+</form>
+</td>
+</tr> 
+</table>
+</center>
+</body>
+</html>

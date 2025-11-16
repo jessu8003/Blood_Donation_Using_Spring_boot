@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+	<h1>Donate Blood</h1>
+		<form action="blooddonordetails">
+			<input th:value="${databaseUserDetails.username}" name="username"><br>
+			<input th:value="${databaseUserDetails.usermobilenumber}" name="usermobilenumber"><br>
+			<input th:value="${databaseUserDetails.useraddress}" name="useraddress"><br>
+			<input th:value="${databaseUserDetails.usergender}" name="usergender"><br>
+			<input placeholder="Enter Your Age" type="number" name="userage" required="required"><br>
+			<input placeholder="Enter Blood Group" type="text" name="userbloodgroup" required="required"><br>
+			<input th:value="${databaseUserDetails.useremailid}" name="useremailid" hidden="true"><br>
+			<input th:value="${databaseUserDetails.userpassword}" name="userpassword" hidden="true"><br>
+			<input type="submit">
+		</form>
+</center>
+</body>
+</html>
